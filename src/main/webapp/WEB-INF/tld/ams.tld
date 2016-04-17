@@ -6,7 +6,7 @@
     <uri>http://www.ams.com/j2ee</uri>
     <tag>
         <name>cutPage</name>
-        <tagclass>com.ams.tag.PageTag</tagclass>
+        <tagclass>com.tms.tag.PageTag</tagclass>
         <bodycontent>empty</bodycontent>
         <attribute>
             <name>formName</name>
@@ -46,7 +46,7 @@
     </tag>
     <tag>
         <name>ajaxPage</name>
-        <tagclass>com.ams.tag.AjaxPageTag</tagclass>
+        <tagclass>com.tms.tag.AjaxPageTag</tagclass>
         <bodycontent>empty</bodycontent>
         <attribute>
             <name>formName</name>

@@ -6,7 +6,7 @@
         <setting name="jdbcTypeForNull" value="NULL" />
     </settings>-->
     <plugins>
-        <plugin interceptor="com.ams.pagination.PageHelper">
+        <plugin interceptor="com.tms.pagination.PageHelper">
             <property name="dialect" value="oracle" />
             <property name="pageSqlId" value=".*QueryPage.*" />
         </plugin>

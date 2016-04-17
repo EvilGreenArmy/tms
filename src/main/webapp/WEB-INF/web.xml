@@ -27,7 +27,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <filter>
         <display-name>xssSqlFilter</display-name>
         <filter-name>xssSqlFilter</filter-name>
-        <filter-class>com.ams.filter.XssSqlFilter</filter-class>
+        <filter-class>com.tms.filter.XssSqlFilter</filter-class>
         <init-param>
             <param-name>charset</param-name>
             <param-value>utf-8</param-value>
@@ -64,21 +64,6 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
         <!-- 此处可以可以配置成*.do，对应struts的后缀习惯 -->
         <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
-    <!-- -->
-    <servlet>
-        <servlet-name>admin</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:admin.xml</param-value>
-        </init-param>
-        <load-on-startup>2</load-on-startup>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>admin</servlet-name>
-        <url-pattern>*.do</url-pattern>
-    </servlet-mapping>
     <jsp-config>
         <taglib>
             <taglib-uri>http://www.ams.com/j2ee</taglib-uri>
@@ -106,10 +91,10 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     </session-config>
     <filter>
         <filter-name>session-timeout</filter-name>
-        <filter-class>com.ams.filter.SessionFilter</filter-class>
+        <filter-class>com.tms.filter.SessionFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>session-timeout</filter-name>
-        <url-pattern>*.do</url-pattern>
+        <url-pattern>*.htm</url-pattern>
     </filter-mapping>
 </web-app>
