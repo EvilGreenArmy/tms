@@ -50,15 +50,14 @@
   <span>欢迎登录后台管理界面平台</span>
   <ul>
     <li><a href="${pageContext.request.contextPath}/index.jsp">回首页</a></li>
-    <li><a href="#">帮助</a></li>
-    <li><a href="#">关于</a></li>
+    <li><a href="${pageContext.request.contextPath}/register.htm">注册</a></li>
   </ul>
 </div>
 
 <div class="loginbody">
 
   <span class="systemlogo"></span>
-  <form action="${pageContext.request.contextPath}/admin/login.do" method="post" id="loginForm">
+  <form action="${pageContext.request.contextPath}/login.htm" method="post" id="loginForm">
     <div class="loginbox">
       <ul>
         <li><input id="userName" name="userName" type="text" class="loginuser" placeholder="用户名"   onclick="JavaScript:this.value=''"/></li>

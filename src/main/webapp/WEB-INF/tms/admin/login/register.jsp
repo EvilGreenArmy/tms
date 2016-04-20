@@ -132,7 +132,7 @@
 
 
 <div class="form-main" id="form_div2">
-  <form name="accountForm" id="accountForm" method="post" action="${basePath}/admin/register.do">
+  <form name="accountForm" id="accountForm" method="post" action="${basePath}/register.htm">
     <input type="hidden" name="xmsbRegister.flag" value="0">
     <table class="sign-table">
 
