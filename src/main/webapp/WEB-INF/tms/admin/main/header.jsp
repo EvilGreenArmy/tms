@@ -6,9 +6,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div class="top">
   <div class="min_width">
-    <div class="top_menu"><a href="http://www.91mydoor.com/index.htm" class="top_menu_span"><span>个人中心</span></a></div>
+    <div class="top_menu"><a href="${basePath}/central.htm" class="top_menu_span"><span>个人中心</span></a></div>
     <div class="top_menu item_name">
-      <span class="top_menu_span">mydooradmi</span>
+      <a href="${basePath}/logout.htm" class="top_menu_span"><span>注销</span></a>
       <div class="nav-popup">
         <ul class="verticalList">
           <li><a href="${basePath}/center.htm">管理中心</a></li>
@@ -16,7 +16,7 @@
         </ul>
       </div>
     </div>
-    <div class="top_menu"><a href="http://www.91mydoor.com/index.htm" class="top_menu_span"><span>首页</span></a></div>
+    <div class="top_menu"><a href="${basePath}/main.htm" class="top_menu_span"><span>首页</span></a></div>
 
   </div>
 </div>

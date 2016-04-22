@@ -61,6 +61,7 @@ public class IndexController extends BaseController {
         this.userService.saveUser(userInfo);
         return "login/login";
     }
+
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String doLogin(String userName, String password, HttpServletRequest request, HttpServletResponse response,
                           Model model) {
@@ -85,17 +86,26 @@ public class IndexController extends BaseController {
         }
 
     }
+
+    @RequestMapping(value = "logout", method = RequestMethod.GET)
+    public String logout(HttpServletRequest request, HttpServletResponse response,
+                         Model model) {
+        HttpSession session = getSession(request);
+        session.removeAttribute(Constant.SESSION_LOGIN_USER);
+        return "login/login";
+    }
+
     @RequestMapping(value = "/main")
     public String main(HttpServletRequest request, HttpServletResponse response, ModelMap model,
-                       @RequestParam(value="type", required = false) String type,
-                       @RequestParam(value="name", required = false) String name) {
+                       @RequestParam(value = "type", required = false) String type,
+                       @RequestParam(value = "name", required = false) String name) {
         //查询成果专利
         Page<ProductInfo> page = new Page<ProductInfo>();
         Map<String, Object> paramMap = new HashMap<String, Object>();
-        if(null != type){
+        if (null != type) {
             paramMap.put("type", type);
         }
-        if(null != name){
+        if (null != name) {
             paramMap.put("name", name);
         }
         paramMap.put("page", page);

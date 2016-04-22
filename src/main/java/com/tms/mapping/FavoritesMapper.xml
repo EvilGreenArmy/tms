@@ -13,12 +13,25 @@
         <association property="productInfo" column="PRODUCT_ID" javaType="com.tms.entities.ProductInfo">
             <id column="PRD_ID" property="id" jdbcType="NUMERIC"/>
             <result column="PRD_NAME" property="name" jdbcType="VARCHAR"/>
+            <result column="PRD_ORGANIZATION" property="organization" jdbcType="VARCHAR"/>
+            <result column="START_DATE" property="startDate" jdbcType="DATE" />
+            <result column="END_DATE" property="endDate"  jdbcType="DATE"/>
+            <result column="ADDR" property="addr" jdbcType="VARCHAR" />
+            <result column="LINKMAN" property="linkman" jdbcType="VARCHAR" />
+            <result column="AREA" property="area" jdbcType="VARCHAR"/>
+            <result column="CONTENT" property="content" jdbcType="VARCHAR"/>
+            <result column="TELEPHONE" property="telephone" jdbcType="VARCHAR"/>
+            <result column="PRICE_UNIT" property="priceUnit" jdbcType="VARCHAR"/>
+            <result column="ZIP_CODE" property="zipCode" jdbcType="VARCHAR"/>
             <result column="TYPE" property="type" jdbcType="VARCHAR"/>
+            <result column="STATUS" property="status" jdbcType="VARCHAR"/>
+            <result column="ADD_DATE" property="addDate" jdbcType="TIMESTAMP"/>
+            <result column="EDIT_DATE" property="editDate" jdbcType="TIMESTAMP"/>
         </association>
     </resultMap>
 
     <select id="favoritesQueryPage" parameterType="java.util.Map" resultMap="favoritesMap">
-        select t.*, u.USER_NAME, p.PRD_NAME, p.TYPE
+        select t.*, u.USER_NAME, p.*
         from T_FAVORITES t left outer join B_ACCOUNT u on t.ACCT_ID = u.ACCT_ID
         left outer join T_PRODUCT p ON t.PRODUCT_ID=p.PRD_ID
         WHERE 1=1

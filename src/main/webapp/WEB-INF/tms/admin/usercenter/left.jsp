@@ -5,16 +5,29 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <div class="logo_title">
-  <p>${login_user}&nbsp;你好!</p>
+  <div class="logo_img">
+    <img src="${basePath}/img/main/male.jpg"/>
+  </div>
+  <p>${login_user.userName}&nbsp;你好!</p>
 </div>
 <ul class="verticalList">
-  <li class="active">
-    <span class="item_icon img1"/></span><span class="span1"><a href="#">用户信息</a></span><img src="${basePath}/img/admin/login/u561.png" class="arrow"/>
+
+  <li <c:if test="${indx == 1}">class="active"</c:if>>
+    <span class="item_icon img1"/></span><span class="span1"><a href="${basePath}/central.htm">用户信息</a></span>
+    <c:if test="${indx == 1}">
+      <img src="${basePath}/img/admin/login/u561.png" class="arrow"/>
+    </c:if>
   </li>
-  <li class="active">
-    <span class="item_icon img6"/></span><span class="span6"><a href="#">我的收藏</a></span><img src="${basePath}/img/admin/login/u561.png" class="arrow"/>
+  <li <c:if test="${indx == 2}">class="active"</c:if>>
+    <span class="item_icon img6"/></span><span class="span6"><a href="${basePath}/favourite.htm">我的收藏</a></span>
+    <c:if test="${indx == 2}">
+      <img src="${basePath}/img/admin/login/u561.png" class="arrow"/>
+    </c:if>
   </li>
-  <li class="active">
-    <span class="item_icon img7"/></span><span class="span7"><a href="#">我的竞价</a></span><img src="${basePath}/img/admin/login/u561.png" class="arrow"/>
+  <li <c:if test="${indx == 3}">class="active"</c:if>>
+    <span class="item_icon img7"/></span><span class="span7"><a href="${basePath}/competition.htm">我的竞价</a></span>
+    <c:if test="${indx == 3}">
+    <img src="${basePath}/img/admin/login/u561.png" class="arrow"/>
+    </c:if>
   </li>
  </ul>

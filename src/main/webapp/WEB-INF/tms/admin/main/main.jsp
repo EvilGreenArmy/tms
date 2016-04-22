@@ -23,6 +23,11 @@
   <style type="text/css"></style>
   <link rel="stylesheet" href="${basePath}/css/main/bootstrap.css">
   <script src="${basePath}/js/main/bootstrap.min.js"></script>
+  <script>
+    function detail(id) {
+    window.location.href = "${basePath}/product/detail.htm?id=" + id + "&t=" +Math.random();
+    }
+  </script>
 </head>
 <body><div id="totop" style="display: none;"></div>
 <script src="${basePath}/js/main/mousetrap.min.js"></script>
@@ -41,7 +46,8 @@
   <div class="content_left">
     <ul class="verticalList teacher_list">
     <c:forEach var="obj" items="${page.resultList}">
-      <li>
+
+      <li onclick="detail('${obj.id}');">
         <div style="position:relative">
           <div class="teacher_content">
             <div>
@@ -59,35 +65,19 @@
       </li>
     </c:forEach>
     </ul>
-    <script type="text/javascript">
-      function pagework(){
-        var num=parseInt($("#pagetext").val());
-        if(num>0){
-          var urll="http://www.91mydoor.com/teacher/allteachers.htm?id=1&townid=0&pagesize=10&coursestate=0&typeid=0&keyword=&sorttype=0&curpage="+num;
-          window.location.href=urll;
-        }else{
-          $("#pagetext").val("");
-        }
-      }
-    </script>
     <div class="page_number_div clear">
       <ul class="horizontalList clear page_number">
-        <!-- 111 start-->
-
-        <!-- 111 ending -->
-
-
         <li class="active">1</li>
-        <li><a href="http://www.91mydoor.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=2">2</a></li>
-        <li><a href="http://www.91mydoor.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=3">3</a></li>
-        <li><a href="http://www.91mydoor.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=4">4</a></li>
-        <li><a href="http://www.91mydoor.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=5">5</a></li>
+        <li><a href="http://www.baidu.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=2">2</a></li>
+        <li><a href="http://www.baidu.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=3">3</a></li>
+        <li><a href="http://www.baidu.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=4">4</a></li>
+        <li><a href="http://www.baidu.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=5">5</a></li>
 
         <!-- 222start -->
         <li><a href="javascript:;">...</a></li>
-        <li><a href="http://www.91mydoor.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=86">86</a></li>
-        <li><a href="http://www.91mydoor.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=2">&gt;</a></li>
-        <li><a href="http://www.91mydoor.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=86">&gt;&gt;</a></li>
+        <li><a href="http://www.baidu.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=86">86</a></li>
+        <li><a href="http://www.baidu.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=2">&gt;</a></li>
+        <li><a href="http://www.baidu.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=86">&gt;&gt;</a></li>
         <!-- 222ending -->
       </ul>
     </div>
