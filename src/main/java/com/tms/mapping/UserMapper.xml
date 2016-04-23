@@ -78,4 +78,15 @@
     <update id="modifyPassword" parameterType="com.tms.entities.UserInfo">
         UPDATE b_account SET ACCT_PWD=#{password} WHERE ACCT_ID=#{id}
     </update>
+    <!--点赞-->
+    <insert id="insertLike" parameterType="com.tms.entities.LikeInfo" >
+        <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            select SEQ_AMS.nextval  from dual
+        </selectKey>
+        insert into t_like (ID, PRODUCT_ID,CREATE_TIME)
+        values(#{id}, #{productId},#{createTime})
+    </insert>
+    <select id="getTotalLike" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        SELECT count(1) FROM t_like t WHERE t.PRODUCT_ID=#{productId}
+    </select>
 </mapper>

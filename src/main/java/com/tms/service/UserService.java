@@ -1,5 +1,6 @@
 package com.tms.service;
 
+import com.tms.entities.LikeInfo;
 import com.tms.entities.UserInfo;
 import com.tms.pagination.Page;
 
@@ -31,4 +32,8 @@ public interface UserService {
     public String encodePassword(String password);
 
     public void modifyPassword(UserInfo user);
+
+    public void saveUp(LikeInfo likeInfo);
+
+    public Integer getTotalLike(Integer productId);
 }

@@ -17,4 +17,6 @@ public interface FavoritesMapper {
     void insertFavorites(FavoritesInfo favoritesInfo);
 
     void deleteFavorites(Integer[] ids);
+
+    Integer getTotalFavorites(Integer productId);
 }

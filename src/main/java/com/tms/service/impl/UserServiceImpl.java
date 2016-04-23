@@ -2,6 +2,7 @@ package com.tms.service.impl;
 
 import com.tms.dao.UserMapper;
 import com.tms.entities.AccountDutyInfo;
+import com.tms.entities.LikeInfo;
 import com.tms.entities.UserInfo;
 import com.tms.pagination.Page;
 import com.tms.security.PwdEncoder;
@@ -20,6 +21,8 @@ import java.util.Map;
  */
 @Service("userService")
 public class UserServiceImpl implements UserService {
+
+
     private static final String salt = "googlebaidu";
     private static final String MD5_KEY = "amsMd5";
     @Autowired
@@ -111,6 +114,15 @@ public class UserServiceImpl implements UserService {
             return true;
         }
         return false;
+    }
+    @Transactional
+    public void saveUp(LikeInfo likeInfo) {
+        this.userDao.insertLike(likeInfo);
+    }
+
+    @Override
+    public Integer getTotalLike(Integer productId) {
+        return this.userDao.getTotalLike(productId);
     }
 
     @Override

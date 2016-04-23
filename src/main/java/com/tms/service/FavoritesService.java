@@ -15,4 +15,6 @@ public interface FavoritesService {
     public void saveFavorites(FavoritesInfo favoritesInfo);
 
     public void deleteFavorites(Integer[] ids);
+
+    public Integer getTotalFavorites(Integer productId);
 }

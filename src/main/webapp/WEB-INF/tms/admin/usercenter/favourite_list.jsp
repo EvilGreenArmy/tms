@@ -4,6 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <ul class="verticalList teacher_list" style="margin-top: 5px;">
   <c:forEach var="obj" items="${page.resultList}">
 
@@ -25,3 +26,6 @@
     </li>
   </c:forEach>
 </ul>
+<jsp:include page="../common/ajaxpager.jsp" flush="true" >
+  <jsp:param name="url" value="${basePath}/favourite/list.htm" />
+</jsp:include>

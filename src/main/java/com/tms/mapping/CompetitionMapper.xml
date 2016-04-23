@@ -8,6 +8,7 @@
         <result column="CREATE_TIME" property="createTime"  jdbcType="TIMESTAMP"/>
         <result column="COM_VALUE" property="comValue"  jdbcType="NUMERIC"/>
         <result column="STATUS" property="status"  jdbcType="VARCHAR"/>
+        <result column="COM_CONTENT" property="content"  jdbcType="VARCHAR"/>
         <association property="userInfo" column="ACCT_ID" javaType="com.tms.entities.UserInfo">
             <id column="ACCT_ID" property="id" jdbcType="NUMERIC"/>
             <result column="USER_NAME" property="userName" jdbcType="VARCHAR"/>
@@ -17,11 +18,16 @@
             <result column="PRD_NAME" property="name" jdbcType="VARCHAR"/>
             <result column="TYPE" property="type" jdbcType="VARCHAR"/>
         </association>
+        <association property="replyUser" column="REPLAY_ID" javaType="com.tms.entities.UserInfo">
+            <id column="REPLAY_ID" property="id" jdbcType="NUMERIC"/>
+            <result column="REPLY_NAME" property="userName" jdbcType="VARCHAR"/>
+        </association>
     </resultMap>
 
     <select id="competitionQueryPage" parameterType="java.util.Map" resultMap="competitionMap">
-        select t.*, u.USER_NAME, p.PRD_NAME, p.TYPE
+        select t.*, u.USER_NAME,u1.USER_NAME p.PRD_NAME, p.TYPE
         from T_COMPETITION t left outer join B_ACCOUNT u on t.ACCT_ID = u.ACCT_ID
+        left outer join B_ACCOUNT u1 on t.ACCT_ID = u1.ACCT_ID
         left outer join T_PRODUCT p ON t.PRODUCT_ID=p.PRD_ID
         WHERE 1=1
         <if test="acctId != null">
@@ -34,7 +40,32 @@
         <selectKey keyProperty="id" resultType="int" order="BEFORE">
             select SEQ_AMS.Nextval from dual
         </selectKey>
-        insert into T_COMPETITION (COM_ID, PRODUCT_ID,COM_VALUE, STATUS, ACCT_ID, CREATE_TIME)
-        values (#{id}, #{productInfo.id},#{comValue}, #{status}, #{userInfo.id}, #{createTime})
+        insert into T_COMPETITION (COM_ID, PRODUCT_ID,COM_VALUE, STATUS, ACCT_ID, CREATE_TIME, COM_CONTENT)
+        values (#{id}, #{productInfo.id},#{comValue}, #{status}, #{userInfo.id}, #{createTime}, #{content})
+    </insert>
+    <select id="getCompetitionAmount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM (SELECT t.ACCT_ID FROM T_COMPETITION t WHERE t.PRODUCT_ID=#{productId} AND t.COM_VALUE > 0
+        GROUP BY t.ACCT_ID) tmp
+    </select>
+    <select id="getMaxValue" parameterType="java.lang.Integer" resultType="java.math.BigDecimal">
+      SELECT NVL(MAX(t.COM_VALUE),0) FROM T_COMPETITION t WHERE t.PRODUCT_ID=#{productId}
+    </select>
+    <select id="getAll" parameterType="java.lang.Integer" resultType="java.math.BigDecimal">
+        SELECT NVL(MAX(t.COM_VALUE),0) FROM T_COMPETITION t WHERE t.PRODUCT_ID=#{productId}
+    </select>
+    <select id="getAllCompetition" parameterType="java.lang.Integer" resultMap="competitionMap">
+        select t.*, u.USER_NAME,u1.USER_NAME AS REPLY_NAME, p.PRD_NAME, p.TYPE
+        from T_COMPETITION t left outer join B_ACCOUNT u on t.ACCT_ID = u.ACCT_ID
+        left outer join B_ACCOUNT u1 on t.REPLAY_ID = u1.ACCT_ID
+        left outer join T_PRODUCT p ON t.PRODUCT_ID=p.PRD_ID
+        WHERE 1=1 AND t.PRODUCT_ID=#{productId}
+        ORDER  BY  t.CREATE_TIME DESC
+    </select>
+    <insert id="insertReply" parameterType="com.tms.entities.CompetitionInfo" >
+        <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            select SEQ_AMS.Nextval from dual
+        </selectKey>
+        insert into T_COMPETITION (COM_ID, PRODUCT_ID,COM_VALUE, STATUS, ACCT_ID, CREATE_TIME, COM_CONTENT, REPLAY_ID)
+        values (#{id}, #{productInfo.id},#{comValue}, #{status}, #{userInfo.id}, #{createTime}, #{content}, #{replyUser.id})
     </insert>
 </mapper>

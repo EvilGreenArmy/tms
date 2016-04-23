@@ -20,6 +20,9 @@ public class CompetitionInfo {
 
     private String status;
 
+    private String content;
+
+    private UserInfo replyUser;
     public Integer getId() {
         return id;
     }
@@ -66,5 +69,21 @@ public class CompetitionInfo {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public UserInfo getReplyUser() {
+        return replyUser;
+    }
+
+    public void setReplyUser(UserInfo replyUser) {
+        this.replyUser = replyUser;
     }
 }

@@ -1156,3 +1156,58 @@ width: 90px;height: 16px;float: right;margin-top: 20px;margin-right: 30px;
 .service_right_p{
 	padding: 0px;margin: 0px;color: #666666;font-weight: 400;line-height: 26px;
 }
+
+.message_ipt{
+	background: #F2F2F2;
+	height: 198px !important;
+	padding-left: 20px;
+	padding-right: 20px;
+	border: 1px #D7D7D7 dashed;
+}
+.message_ipt p>span{
+	margin-right: 20px;
+}
+.message_ipt p>span .num{
+	color: #D84634;
+}
+.message_ipt textarea{
+	width: 99%;
+	border: none;
+	resize: none;
+	outline: none;
+	height: 94px;
+}
+.message_ipt a{
+	display: block;
+	width: 120px;
+	height: 30px;
+	background: #D84634;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 30px;
+	float: right;
+	margin-top:10px ;
+}
+.message_list .user_head_img{float: left;width: 41px;height: 41px;border-radius: 41px;margin-top: 20px;overflow: hidden;}
+.message_list .user_head_img img{width: 41px;height: 41px;}
+.message_list>li> .first{min-height: 119px;border-bottom: 1px dashed #D7D7D7;}
+.message_list .message_content{float: left;margin-left: 20px;width: 611px;}
+.message_list .message_content p{margin-top: 0px;}
+.message_list .message_content .message_content_top{margin-top: 20px;margin-bottom: 5px;color: #c9c9c9 !important;}
+.message_list .message_content .messagelist_username{color:#c9c9c9}
+.message_time{float: right;}
+.message_list_tools{float: right;}
+.message_list_tools>li{margin-left:20px;position: relative;}
+.message_list_tools>li>span{width: 60px; display: block;text-align: center;}
+.message_list_tools .manager .nav-popup{position:absolute;display: none;text-align: center;}
+.message_list_tools .manager .nav-popup>ul>li>a{width: 58px;display: block;border: 1px solid #C9C9C9;}
+.message_list_tools .manager .nav-popup>ul>li>a:hover{background: #D84634;color: #FFFFFF;}
+.message_list_tools .manager .nav-popup>ul>li .delete{border-bottom: none;}
+.message_list_tools>li .count{color: #D84634;}
+.message_content .reply_name{color: #D84634;}
+.horizontalListComment {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: block;
+}

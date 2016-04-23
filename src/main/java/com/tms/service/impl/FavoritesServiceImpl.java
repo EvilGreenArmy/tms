@@ -36,4 +36,9 @@ public class FavoritesServiceImpl implements FavoritesService {
     public void deleteFavorites(Integer[] ids) {
         dao.deleteFavorites(ids);
     }
+
+    @Override
+    public Integer getTotalFavorites(Integer productId) {
+        return this.dao.getTotalFavorites(productId);
+    }
 }

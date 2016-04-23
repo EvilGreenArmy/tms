@@ -1,6 +1,7 @@
 package com.tms.dao;
 
 import com.tms.entities.AccountDutyInfo;
+import com.tms.entities.LikeInfo;
 import com.tms.entities.UserInfo;
 import org.springframework.stereotype.Repository;
 
@@ -32,4 +33,8 @@ public interface UserMapper {
     Integer isAdminUser(Integer acctId);
 
     void modifyPassword(UserInfo userInfo);
+
+    void insertLike(LikeInfo likeInfo);
+
+    Integer getTotalLike(Integer productId);
 }
