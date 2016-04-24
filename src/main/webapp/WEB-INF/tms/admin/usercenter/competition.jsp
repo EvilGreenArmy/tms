@@ -17,6 +17,18 @@
   </style>
   <link rel="stylesheet" href="${basePath}/css/main/manage.css">
   <script src="${basePath}/js/main/jquery.form.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var url="${basePath}/competition/list.htm?t=" + Math.random();
+      $.get(url,function(data){
+        $("#divcontent").html('');
+        $("#divcontent").html(data);
+      });
+    });
+    function detail(id) {
+      window.location.href = "${basePath}/product/detail.htm?id=" + id + "&t=" +Math.random();
+    }
+  </script>
 </head>
 <body>
 <jsp:include page="../main/header.jsp" flush="true" />

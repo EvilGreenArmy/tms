@@ -14,7 +14,7 @@
             <result column="USER_NAME" property="userName" jdbcType="VARCHAR"/>
         </association>
         <association property="productInfo" column="PRODUCT_ID" javaType="com.tms.entities.ProductInfo">
-            <id column="PRD_ID" property="id" jdbcType="NUMERIC"/>
+            <id column="PRODUCT_ID" property="id" jdbcType="NUMERIC"/>
             <result column="PRD_NAME" property="name" jdbcType="VARCHAR"/>
             <result column="TYPE" property="type" jdbcType="VARCHAR"/>
         </association>
@@ -25,7 +25,7 @@
     </resultMap>
 
     <select id="competitionQueryPage" parameterType="java.util.Map" resultMap="competitionMap">
-        select t.*, u.USER_NAME,u1.USER_NAME p.PRD_NAME, p.TYPE
+        select t.*, u.USER_NAME,u1.USER_NAME AS REPLY_NAME, p.PRD_NAME, p.TYPE
         from T_COMPETITION t left outer join B_ACCOUNT u on t.ACCT_ID = u.ACCT_ID
         left outer join B_ACCOUNT u1 on t.ACCT_ID = u1.ACCT_ID
         left outer join T_PRODUCT p ON t.PRODUCT_ID=p.PRD_ID

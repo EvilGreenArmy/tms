@@ -1,8 +1,10 @@
 package com.tms.controller;
 
+import com.tms.entities.CompetitionInfo;
 import com.tms.entities.FavoritesInfo;
 import com.tms.entities.UserInfo;
 import com.tms.pagination.Page;
+import com.tms.service.CompetitionService;
 import com.tms.service.FavoritesService;
 import com.tms.service.UserService;
 import com.tms.util.Constant;
@@ -26,6 +28,8 @@ public class UserController extends BaseController {
     private UserService userService;
     @Autowired
     private FavoritesService favoritesService;
+    @Autowired
+    private CompetitionService competitionService;
     @RequestMapping(value = "/central")
      public String list(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
         model.addAttribute("indx", 1);
@@ -98,5 +102,24 @@ public class UserController extends BaseController {
     public String competition(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
         model.addAttribute("indx", 3);
         return "usercenter/competition";
+    }
+    @RequestMapping(value = "/competition/list")
+    public String competitionList(HttpServletRequest request, HttpServletResponse response, ModelMap model,
+                                @RequestParam(value = "currentPage", defaultValue = "1") Integer currentPage,
+                                @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
+        Page<CompetitionInfo> page = new Page<CompetitionInfo>();
+        page.setCurrentPage(currentPage);
+        page.setShowCount(pageSize);
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        paramMap.put("page", page);
+        UserInfo userInfo = (UserInfo) getSession(request).getAttribute(Constant.SESSION_LOGIN_USER);
+        int isAdmin = 1;
+        if (!userService.isAdmin(userInfo.getId())) {
+            paramMap.put("acctId", userInfo.getId());
+            isAdmin = 0;
+        }
+        page = this.competitionService.queryList(paramMap);
+        model.addAttribute("page", page);
+        return "usercenter/competition_list";
     }
 }
