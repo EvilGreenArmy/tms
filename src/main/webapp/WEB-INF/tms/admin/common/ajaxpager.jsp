@@ -26,9 +26,14 @@
 
   }
   function changePage(curpage, pagesize, url) {
+    if(url.indexOf("?") > 0) {
+      url += ("&t=" + Math.random());
+    } else {
+      url += ("?t=" + Math.random());
+    }
     $.ajax({
       type: "POST",
-      url: url + "?t=" + Math.random(),
+      url: url,
       data: {currentPage:curpage,pageSize:pagesize},
       dataType: "html",
       success: function(data) {

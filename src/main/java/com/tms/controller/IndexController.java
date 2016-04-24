@@ -6,6 +6,7 @@ import com.tms.pagination.Page;
 import com.tms.service.ProductService;
 import com.tms.service.UserService;
 import com.tms.util.Constant;
+import com.tms.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -98,15 +99,20 @@ public class IndexController extends BaseController {
     @RequestMapping(value = "/main")
     public String main(HttpServletRequest request, HttpServletResponse response, ModelMap model,
                        @RequestParam(value = "type", required = false) String type,
-                       @RequestParam(value = "name", required = false) String name) {
+                       @RequestParam(value = "name", required = false) String name,
+                       @RequestParam(value = "keyword", required = false) String keyword) throws  Exception{
         //查询成果专利
         Page<ProductInfo> page = new Page<ProductInfo>();
         Map<String, Object> paramMap = new HashMap<String, Object>();
         if (null != type) {
             paramMap.put("type", type);
         }
-        if (null != name) {
+        /*if (null != name) {
             paramMap.put("name", name);
+        }*/
+        if (StringUtil.isNotEmpty(keyword)) {
+            keyword = new String(keyword.getBytes("ISO-8859-1"), "UTF-8");
+            paramMap.put("name", keyword);
         }
         paramMap.put("page", page);
         page = productService.queryList(paramMap);

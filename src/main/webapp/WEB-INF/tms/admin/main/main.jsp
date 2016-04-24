@@ -27,6 +27,12 @@
     function detail(id) {
     window.location.href = "${basePath}/product/detail.htm?id=" + id + "&t=" +Math.random();
     }
+    function search() {
+      var keyword = $("#searchword").val();
+      if($.trim(keyword) != '' && 'undefined' != $.trim(keyword)) {
+        window.location.href = "${basePath}/main.htm?keyword=" + keyword;
+      }
+    }
   </script>
 </head>
 <body><div id="totop" style="display: none;"></div>
@@ -35,8 +41,8 @@
 <div class="menu">
   <div class="min_width_menu">
     <div class="menu_search">
-      <input class="menu_div_ipt mousetrap" type="text" id="searchword" value="">
-      <div class="menu_div_search"><span class="menu_div_search_bt">搜索</span></div>
+      <input class="menu_div_ipt mousetrap" type="text" id="searchword" value="${paramMap.name}">
+      <div class="menu_div_search"><span class="menu_div_search_bt" onclick="search();">搜索</span></div>
     </div>
   </div>
 </div>
@@ -66,20 +72,16 @@
     </c:forEach>
     </ul>
     <div class="page_number_div clear">
-      <ul class="horizontalList clear page_number">
-        <li class="active">1</li>
-        <li><a href="http://www.baidu.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=2">2</a></li>
-        <li><a href="http://www.baidu.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=3">3</a></li>
-        <li><a href="http://www.baidu.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=4">4</a></li>
-        <li><a href="http://www.baidu.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=5">5</a></li>
-
-        <!-- 222start -->
-        <li><a href="javascript:;">...</a></li>
-        <li><a href="http://www.baidu.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=86">86</a></li>
-        <li><a href="http://www.baidu.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=2">&gt;</a></li>
-        <li><a href="http://www.baidu.com/teacher/allteachers.htm?id=1&amp;townid=0&amp;pagesize=10&amp;coursestate=0&amp;typeid=0&amp;keyword=&amp;sorttype=0&amp;curpage=86">&gt;&gt;</a></li>
-        <!-- 222ending -->
-      </ul>
+      <c:if test="${paramMap.name != null && paramMap.name ne ''}">
+        <jsp:include page="../common/ajaxpager.jsp" flush="true" >
+            <jsp:param name="url" value="${basePath}/main.htm?keyword=${paramMap.name}" />
+        </jsp:include>
+      </c:if>
+    <c:if test="${paramMap.name == null || paramMap.name eq ''}">
+      <jsp:include page="../common/ajaxpager.jsp" flush="true" >
+        <jsp:param name="url" value="${basePath}/main.htm" />
+      </jsp:include>
+      </c:if>
     </div>
   </div>
 </div>
