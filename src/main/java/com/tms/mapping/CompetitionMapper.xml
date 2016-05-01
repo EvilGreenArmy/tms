@@ -29,7 +29,7 @@
         from T_COMPETITION t left outer join B_ACCOUNT u on t.ACCT_ID = u.ACCT_ID
         left outer join B_ACCOUNT u1 on t.ACCT_ID = u1.ACCT_ID
         left outer join T_PRODUCT p ON t.PRODUCT_ID=p.PRD_ID
-        WHERE 1=1
+        WHERE 1=1 AND t.STATUS='A'
         <if test="acctId != null">
             AND (t.ACCT_ID=#{acctId} )
         </if>
