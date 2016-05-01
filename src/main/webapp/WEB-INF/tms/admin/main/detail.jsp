@@ -165,7 +165,7 @@
       </div>
       <p class="price">
         <%--<span><span>市场价格&nbsp;：&nbsp;</span><span><span style="text-decoration:line-through;">12121212</span> 元</span></span>--%>
-        <span style="margin-top:10px"> <span>最高价&nbsp;：&nbsp;</span><span><span style="font-size: 30px;color: #D84634;" id="maxValue">${maxValue}</span>元</span></span>
+        <span style="margin-top:10px"> <span>最高价&nbsp;：&nbsp;</span><span><span style="font-size: 30px;color: #D84634;" id="maxValue">${maxValue}</span>&nbsp;&nbsp;${product.priceUnit}</span></span>
       </p>
       <div class="clear" style="padding-top: 3px;height: 30px;line-height: 28px; float:left;">
         <span class="floatL">&nbsp;</span><span class="floatL" >&nbsp;</span>
@@ -252,7 +252,7 @@
             <span>共<span class="num" id="maxAmount">&nbsp;${comAmount}&nbsp;</span>人出价</span>
           </p>
           <textarea id="content" placeholder="所有评论仅代表网友意见，延安市科技局保持中立" style="height:94px;"></textarea>
-          出价&nbsp;<input type="text" name="money" id="money" maxlength="8" placeholder="出价" onkeyup="checkNum(this);"/>
+          出价&nbsp;<input type="text" name="money" id="money" maxlength="8" placeholder="出价" onkeyup="checkNum(this);"/>&nbsp;&nbsp;${product.priceUnit}
           <a href="javascript:;" onclick="pubcomments('content', 'money');">竞价</a>
         </div>
       </div>
@@ -277,7 +277,7 @@
                     ${com.content}
                   </p>
                   <c:if test="${com.comValue > 0}">
-                  <p style="width:88%;">出价：<span style="color:red">${com.comValue}</span></p>
+                  <p style="width:88%;">出价：<span style="color:red">${com.comValue}</span>&nbsp;&nbsp;${product.priceUnit}</p>
                   </c:if>
                 </div>
                 <ul class="horizontalListComment message_list_tools" style="padding-bottom:5px;">

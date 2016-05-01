@@ -260,7 +260,7 @@ a{text-decoration: none;color: #333333;}
 /*page*/
 .pagin{position:relative;margin-top:10px;padding:0 12px;}
 .pagin .blue{color:#056dae;font-style:normal;}
-.pagin .paginList{position:absolute;right:12px;top:0;}
+.pagin .paginList{position:absolute;right:12px;top:0;list-style: none;}
 .pagin .paginList .paginItem{float:left;}
 .pagin .paginList .paginItem a{float:left;width:31px;height:28px;border:1px solid #DDD; text-align:center;line-height:30px;border-left:none;color:#3399d5;}
 .pagin .paginList .paginItem:first-child a{border-left:1px solid #DDD;}

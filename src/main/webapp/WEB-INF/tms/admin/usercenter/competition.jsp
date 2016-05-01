@@ -38,10 +38,11 @@
   </div>
   <div class="content_right">
     <div class="content_right_header">
+    </div>
     <div id="divcontent" class="content_right_content">
 
     </div>
-      </div>
+
   </div>
 </div>
 <div class="clear"></div>
