@@ -123,7 +123,7 @@ body {margin: 0;color: #333333;font-family: '微软雅黑 Regular', '微软雅�
 				width: 543px;
 				height: 38px;
 				background-image: url(../../img/admin/login/u181.png);
-				float: right;
+				float: left;
 			}
 			.menu_div_select{
 				float: left;
@@ -1216,7 +1216,7 @@ width: 90px;height: 16px;float: right;margin-top: 20px;margin-right: 30px;
 .pagin{position:relative;margin-top:10px;padding:0 12px;}
 .pagin .blue{color:#056dae;font-style:normal;}
 .pagin .paginList{position:absolute;right:12px;top:0;}
-.pagin .paginList .paginItem{float:left;}
+.pagin .paginList .paginItem{float:left;list-style-type: none;}
 .pagin .paginList .paginItem a{float:left;width:31px;height:28px;border:1px solid #DDD; text-align:center;line-height:30px;border-left:none;color:#3399d5;}
 .pagin .paginList .paginItem:first-child a{border-left:1px solid #DDD;}
 .pagin .paginList .paginItem:first-child a{border-bottom-left-radius:5px;border-top-left-radius:5px;}
