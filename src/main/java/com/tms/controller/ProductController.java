@@ -127,6 +127,9 @@ public class ProductController extends BaseController {
         competition.setStatus(Constant.ACTIVE_STATUS);
         competition.setCreateTime(new Date());
         competitionService.saveCompetition(competition);
+        if(money != null){
+            productService.updateStatus(productId,"3");
+        }
         //最高价
         BigDecimal maxValue = this.competitionService.getMaxValue(productId);
         //出价人数

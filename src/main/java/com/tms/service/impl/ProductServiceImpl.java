@@ -53,7 +53,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void approve(Integer id, String status) {
+    public void updateStatus(Integer id, String status) {
         Map<String, Object> paramMap = new HashMap<String, Object>();
         paramMap.put("id",id);
         paramMap.put("status",status);

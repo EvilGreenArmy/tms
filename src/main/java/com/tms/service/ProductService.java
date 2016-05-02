@@ -22,5 +22,5 @@ public interface ProductService {
 
     public void deleteProduct(Integer id);
 
-    public void approve(Integer id, String status);
+    public void updateStatus(Integer id, String status);
 }
