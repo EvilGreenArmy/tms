@@ -12,18 +12,24 @@ public class ProductInfo {
     private Integer id;
     // 名称
     private String name;
-    // 单位
+    // 中文名称
+    private String chineseName;
+    // 隶属省部
+    private String province;
+    // 单位属性
+    private String organsAttribute;
+    // 单位名称
     private String organization;
     // 研究开始时间
     private Date startDate;
     // 研究结束时间
     private Date endDate;
+    // 所在地区
+    private String area;
     // 通讯地址
     private String addr;
     // 联系人
     private String linkman;
-    // 所在区域
-    private String area;
     // 内容简介
     private String content;
     // 联系电话
@@ -32,12 +38,26 @@ public class ProductInfo {
     private String priceUnit;
     // 邮编
     private String zipCode;
+    // 任务来源
+    private String taskSource;
+    // 有无密级
+    private String isSecret;
+    // 密级
+    private String secretLevel;
+    // 技术资料目录
+    private String technologyDirectory;
     // 类型 成果 | 专利
     private String type;
-    // 状态 A-可用 D-删除
+    // 状态 1-发布 2-申报 3-交易 4- 完成  5-竞标  6-实施  0-过期 -1 - 删除
     private String status;
+    // 成交时间
+    private Date transactionDate;
+    // 添加用户
+    private UserInfo transactionUser;
     // 添加时间
     private Date addDate;
+    // 过期时间
+    private Date pastDate;
     // 添加用户
     private UserInfo addUser;
     // 修改时间
@@ -59,6 +79,14 @@ public class ProductInfo {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getChineseName() {
+        return chineseName;
+    }
+
+    public void setChineseName(String chineseName) {
+        this.chineseName = chineseName;
     }
 
     public String getOrganization() {
@@ -85,6 +113,30 @@ public class ProductInfo {
         this.endDate = endDate;
     }
 
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getOrgansAttribute() {
+        return organsAttribute;
+    }
+
+    public void setOrgansAttribute(String organsAttribute) {
+        this.organsAttribute = organsAttribute;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
     public String getAddr() {
         return addr;
     }
@@ -99,14 +151,6 @@ public class ProductInfo {
 
     public void setLinkman(String linkman) {
         this.linkman = linkman;
-    }
-
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
     }
 
     public String getContent() {
@@ -139,6 +183,38 @@ public class ProductInfo {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public String getTaskSource() {
+        return taskSource;
+    }
+
+    public void setTaskSource(String taskSource) {
+        this.taskSource = taskSource;
+    }
+
+    public String getIsSecret() {
+        return isSecret;
+    }
+
+    public void setIsSecret(String isSecret) {
+        this.isSecret = isSecret;
+    }
+
+    public String getSecretLevel() {
+        return secretLevel;
+    }
+
+    public void setSecretLevel(String secretLevel) {
+        this.secretLevel = secretLevel;
+    }
+
+    public String getTechnologyDirectory() {
+        return technologyDirectory;
+    }
+
+    public void setTechnologyDirectory(String technologyDirectory) {
+        this.technologyDirectory = technologyDirectory;
     }
 
     public String getType() {
@@ -187,6 +263,14 @@ public class ProductInfo {
 
     public void setEditUser(UserInfo editUser) {
         this.editUser = editUser;
+    }
+
+    public Date getPastDate() {
+        return pastDate;
+    }
+
+    public void setPastDate(Date pastDate) {
+        this.pastDate = pastDate;
     }
 
     @Override
