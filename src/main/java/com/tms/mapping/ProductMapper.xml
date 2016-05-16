@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.tms.dao.ProductMapper" >
-    <resultMap type="com.ams.entities.admin.ProductInfo" id="productMap">
+    <resultMap type="com.tms.entities.ProductInfo" id="productMap">
         <!-- 主键必须用id标签映射 -->
         <id column="PRD_ID" property="id" jdbcType="NUMERIC"/>
         <!-- column为数据库字段名,property为实体类属性名 -->
@@ -29,7 +29,7 @@
         <result column="PROVINCE" property="province" jdbcType="VARCHAR"/>
         <result column="ORGANSATTRIBUTE" property="organsAttribute" jdbcType="VARCHAR"/>
 
-        <association property="addUser" column="ADD_USER_ID" javaType="com.ams.entities.admin.UserInfo">
+        <association property="addUser" column="ADD_USER_ID" javaType="com.tms.entities.UserInfo">
             <id column="ACCT_ID" property="id" jdbcType="NUMERIC"/>
             <result column="USER_NAME" property="userName" jdbcType="VARCHAR"/>
         </association>
@@ -51,7 +51,7 @@
             AND u.TYPE=#{type}
         </if>
     </select>
-    <insert id="insertProduct" parameterType="com.ams.entities.admin.ProductInfo" >
+    <insert id="insertProduct" parameterType="com.tms.entities.ProductInfo" >
         <selectKey keyProperty="id" resultType="int" order="BEFORE">
             select SEQ_AMS.nextval  from dual
         </selectKey>
@@ -69,7 +69,7 @@
         #{addDate}, #{editDate}, #{pastDate}, #{addUser.id,jdbcType=NUMERIC}, #{editUser.id,jdbcType=NUMERIC})
     </insert>
 
-    <update id="updateProduct" parameterType="com.ams.entities.admin.ProductInfo" >
+    <update id="updateProduct" parameterType="com.tms.entities.ProductInfo" >
         UPDATE  T_PRODUCT SET
         PRD_NAME=#{name,jdbcType=VARCHAR}, PRD_ORGANIZATION= #{organization,jdbcType=VARCHAR}, START_DATE=#{startDate,jdbcType=TIMESTAMP},
         END_DATE=#{endDate,jdbcType=TIMESTAMP}, ADDR=#{addr,jdbcType=VARCHAR}, LINKMAN=#{linkman,jdbcType=VARCHAR}, AREA=#{area,jdbcType=VARCHAR},
