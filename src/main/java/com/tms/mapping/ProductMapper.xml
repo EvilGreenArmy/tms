@@ -37,12 +37,9 @@
     <select id="productQueryPage" parameterType="java.util.Map" resultMap="productMap">
         select u.*, a.ACCT_ID, a.USER_NAME
         from T_PRODUCT u LEFT join B_ACCOUNT a on u.ADD_USER_ID=a.ACCT_ID
-        WHERE  1=1
+        WHERE  1=1 AND u.STATUS IN ('1','3')
         <if test="name!=null and name !=''">
           AND u.PRD_NAME LIKE '%'||#{name}||'%'
-        </if>
-        <if test="status!=null and status !=''">
-            AND u.STATUS=#{status}
         </if>
         <if test="addUserId!=null and addUserId !=''">
             AND u.ADD_USER_ID=#{addUserId}
@@ -50,6 +47,7 @@
         <if test="type!=null and type !=''">
             AND u.TYPE=#{type}
         </if>
+        ORDER BY u.PRD_ID DESC
     </select>
     <insert id="insertProduct" parameterType="com.tms.entities.ProductInfo" >
         <selectKey keyProperty="id" resultType="int" order="BEFORE">
